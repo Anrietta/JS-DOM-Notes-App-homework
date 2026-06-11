@@ -9,6 +9,57 @@
     <script defer src="./assets/index.js"></script>
 </head>
 <body>
+    <main class="main-wrapper">
+        <h1 class="main-header">NOTES APP</h1>
+        <div class="forms-wrapper">
+            <h2 class="note-form-header">Create new note</h2>
+            <form class="note-form">
+                <label>
+                    <span>Note title:</span>
+                    <input class="input-item" type="text" name="noteTitle" placeholder="Title" autofocus>
+                </label>
+                <label>
+                    <span>Note content:</span>
+                    <textarea class="input-item" name="noteContent" placeholder="Content"></textarea>
+                </label>
+                <button type="submit" class="add-note-btn" disabled>Add note</button>
+                <button type="reset" class="clear-note-btn">Clear</button>
+            </form>
+
+            <br>
+            <form class="search-form">
+                <label>
+                    <span>Search notes by keyword:</span>
+                    <input class="search-item" type="text" name="searchByKeyword" placeholder="">
+                </label>
+                <button type="submit" class="search-btn">Search</button>
+                <button type="button" class="reset-filter-btn">Reset filter</button>
+            </form>
+        </div>
+
+        <ul class="notes-list">
+            <!-- <li class="list-item">
+                <button class="delete-btn">X</button>
+                <h2 class="note-title">cat</h2>
+                <p class="note-content">cat</p>
+            </li>
+            <li class="list-item">
+                <button class="delete-btn">X</button>
+                <h2 class="note-title">dog</h2>
+                <p class="note-content">dog</p>
+            </li>
+            <li class="list-item">
+                <button class="delete-btn">X</button>
+                <h2 class="note-title">bug</h2>
+                <p class="note-content">bug</p>
+            </li>
+            <li class="list-item">
+                <button class="delete-btn">X</button>
+                <h2 class="note-title">EvenbuggsbreadANDToast</h2>
+                <p class="note-content">EvenbuggsbreadANDToast</p>
+            </li> -->
+        </ul>
+    </main>
     
 </body>
 </html>
