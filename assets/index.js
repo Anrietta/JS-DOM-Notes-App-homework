@@ -21,7 +21,7 @@ const notes = document.getElementsByClassName('list-item');
 // тепер де його ще перевірити щоб він видалив повідомлення коли додали нотатку?
 // ПІД ЧАС ДОДАВАННЯ!!!!
 // Ще треба перевірити коли видаляється останній елемент!!
-checkNotesAvailabilityWarnMessage('Empty list. No items to display', notesList, createWarnMessage);
+checkNotesAvailabilityWarnMessage('Empty list. No items to display.', notesList, createWarnMessage);
 
 
 // додам обробник щоб активував кнопку add лише тоді коли поля title та content заповнені, 
@@ -54,7 +54,7 @@ addNoteBtn.addEventListener('click', function (e) {
     addNoteBtn.setAttribute('disabled','');
     // після додавання нової нотатки перевіряю ще раз щоб видалити warnMessage якщо він був
     // бо список вже не буде пустий
-    checkNotesAvailabilityWarnMessage('Empty list. No items to display', notesList, createWarnMessage);
+    checkNotesAvailabilityWarnMessage('Empty list. No items to display.', notesList, createWarnMessage);
 })
 
 function createNoteEl(title, content) {
@@ -62,11 +62,13 @@ function createNoteEl(title, content) {
     notesItemEl.classList.add('list-item');
 
     const noteDeleteBtnEl = document.createElement('button');
-    noteDeleteBtnEl.textContent = 'X';
     noteDeleteBtnEl.classList.add('delete-btn');
+    const noteDeleteBtnIconEl = document.createElement('i');
+    noteDeleteBtnEl.classList.add('fa-solid','fa-trash-can');
+    noteDeleteBtnEl.append(noteDeleteBtnIconEl);
     noteDeleteBtnEl.addEventListener('click', noteDeleteBtnHandler)
 
-    const noteTitleEl = document.createElement('h2');
+    const noteTitleEl = document.createElement('h3');
     noteTitleEl.textContent = title;
     noteTitleEl.classList.add('note-title');
 
@@ -90,7 +92,7 @@ function noteDeleteBtnHandler(e) {
 
     // після видалення останньої нотатки перевіряю чи список не пустий щоб додати warnMessage
     if (notes.length === 0) {
-        checkNotesAvailabilityWarnMessage('Empty list. No items to display', notesList, createWarnMessage);
+        checkNotesAvailabilityWarnMessage('Empty list. No items to display.', notesList, createWarnMessage);
     }
 
     noteTitle.focus();
@@ -127,7 +129,7 @@ searchBtn.addEventListener('click', function(e) {
 
     // debugger;
     if (!notes || notes.length === 0) {
-        checkNotesAvailabilityWarnPopup('Empty list. No items to search');
+        throwWarnPopup('Empty list. No items to search.', body);
         return;
     };
 
@@ -137,7 +139,7 @@ searchBtn.addEventListener('click', function(e) {
     // якщо ми дійшли сюди значить інпут для пошуку не пустий і список нотаток не пустий
     // можна здійснювати пошук
 
-    // перестворюю список щоб актуалізувати його на момент кліку на кнопку
+    // для Array перестворюю список щоб актуалізувати його на момент кліку на кнопку
     const notesArr = Array.from(notes);
     
     // спершу скину результати попереднього пошуку якщо ще не натискався reset, бо інакше мій список 
@@ -149,7 +151,7 @@ searchBtn.addEventListener('click', function(e) {
     // якщо співпадіння по пошуку немає то кинути popup і вийти, без цього при відсутності співпадінь всім нотаткам
     // додається атр hidden і вони зникають :)
     if (matchNodes.length === 0) {
-        checkNotesAvailabilityWarnPopup('No match found');
+        throwWarnPopup('No match found.', body);
         return;
     };
     // note textContent дає склеєний результат всього текстового контенту дочірніх елементів note
@@ -164,7 +166,7 @@ searchBtn.addEventListener('click', function(e) {
 
 resetFilterBtn.addEventListener('click', function () {
 
-    // перестворюю список щоб актуалізувати його на момент кліку на кнопку 
+    // для Array перестворюю список щоб актуалізувати його на момент кліку на кнопку 
     const notesArr = Array.from(notes);
 
     notesArr.forEach(note => {
@@ -176,13 +178,14 @@ resetFilterBtn.addEventListener('click', function () {
     noteTitle.focus();
 })
 
-function checkNotesAvailabilityWarnPopup(warnText) {
+function throwWarnPopup(warnText, parent) {
 
-    createWarnPopup(warnText);
+    const popup = createWarnPopup(warnText);
+    parent.append(popup);
     searchBtn.setAttribute('disabled', '');
-    const popupContainer = document.querySelector('.popup-container');
+
     setTimeout(() => {
-        popupContainer.remove()
+        popup.remove()
         searchBtn.removeAttribute('disabled');
     }, 2000)
 
@@ -191,16 +194,16 @@ function checkNotesAvailabilityWarnPopup(warnText) {
 // створити попап з повідомленням при натисканні кнопки search коли список пустий 
 function createWarnPopup(warnText) {
     const popupContainer = document.createElement('div');
-    popupContainer.classList.add('popup-container');
+    popupContainer.classList.add('warn-popup-container');
 
     const popupPar = document.createElement('p');
-    popupPar.classList.add('popup-text')
+    popupPar.classList.add('warn-popup-text')
     popupPar.textContent = warnText;
 
     popupContainer.append(popupPar);
-    body.append(popupContainer);
 
     searchInput.value = '';
     noteTitle.focus();
 
+    return popupContainer;
 }

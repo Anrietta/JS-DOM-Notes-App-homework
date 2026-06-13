@@ -1,0 +1,162 @@
+:root {
+    --main-bg-color: #BED3E5;
+    --secondary-bg-color: #1A5B6B;
+    --border-color: grey;
+    --warn-popup-color: #FF8A7A;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+body {
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-header {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin: 30px 0 30px 0;
+}
+
+.main-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.forms-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 380px;
+    width: 40%;
+    border-radius: 10px;
+    background-color: var(--main-bg-color);
+    position: sticky;
+    top: 84px;
+}
+
+.form-wrapper {
+    padding: 20px;
+}
+
+.form-header {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.note-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-item {
+    width: 100%;
+    line-height: 2;
+    border-radius: 5px;
+    padding: 0 8px;
+    border: 1px solid var(--border-color);
+}
+
+textarea.input-item {
+    line-height: 1;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.search-item {
+    width: 100%;
+    line-height: 2;
+    border-radius: 5px;
+    padding: 0 8px;
+    border: 1px solid var(--border-color);
+}
+
+.notes-list {
+    position: relative;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 60%;
+}
+
+.list-item {
+    position: relative;
+    width: 200px;
+    border-radius: 5px;
+    background-color: var(--main-bg-color);
+    padding: 8px;
+    min-height: 200px;
+    overflow-wrap: break-word;
+    word-wrap: wrap;
+    overflow: hidden;
+}
+
+.delete-btn {
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    color: var(--secondary-bg-color);
+
+    display:block;
+    margin-left: auto;
+    background-color: transparent;
+    border: none;
+}
+
+.delete-btn:hover {
+    font-size: 18px;
+    transition: font-size 0.3s ease-in-out;
+}
+
+.note-title {
+    margin-top: 28px;     /*10px + 18px макс висота іконки на видалення*/
+    font-weight: 600;
+}
+
+.note-content {
+    margin-top: 10px;   
+}
+
+
+.warn-message {
+    margin: 20px auto 0 auto;
+    text-align: center;
+}
+
+.warn-popup-container {
+    position: absolute;
+    width: 280px;
+    height: 200px;
+    font-size: 18px;
+    font-weight: 600;
+    top: 50%;
+    left: 50%;
+    border: 2px solid var(--warn-popup-color);
+    border-radius: 5px;
+    background-color: var(--warn-popup-color);
+    padding: 91px 10px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+}
+
+.btn {
+    border-radius: 5px;
+    padding: 4px;
+    border: 1px solid var(--border-color);
+    background-color: var(--secondary-bg-color);
+}
