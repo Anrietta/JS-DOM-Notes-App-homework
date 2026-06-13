@@ -1,0 +1,62 @@
+@media (max-width: 630px) {
+
+    * {
+        font-size: 14px;
+    }
+
+    .main-header {
+        font-size: 18px;
+        margin: 20px 0;
+    }
+
+    .main-wrapper {
+        flex-direction: column;
+    }
+
+    .forms-wrapper {
+        flex-direction: row;
+        justify-content: space-around;
+        position: static;
+        min-width: 300px;
+        width: 100%;
+    }
+
+    .form-wrapper {
+        padding: 10px;
+    }
+
+    .form-header {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    textarea.input-item {
+        height: 80px;
+    }
+
+    .notes-list {
+        justify-content: space-between;
+        gap: 10px;
+        width: 100%;
+        padding: 5px;
+    }
+
+    .list-item {
+        min-width: 100px;
+        width: 140px;
+        min-height: 140px;
+    }
+
+    .warn-message {
+        margin: 15px auto 0 auto;
+        text-align: center;
+    }
+
+    .warn-popup-container {
+        width: 250px;
+        height: 116px;
+        font-size: 16px;
+        top: 55%;
+        padding: 50px 10px;
+    }
+}

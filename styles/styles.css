@@ -67,7 +67,9 @@ body {
 }
 
 textarea.input-item {
+    padding-top: 5px;
     line-height: 1;
+    height: 150px;
 }
 
 .search-form {

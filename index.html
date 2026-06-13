@@ -6,6 +6,7 @@
     <title>Notes App</title>
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/media.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script defer src="./assets/index.js"></script>
 </head>
@@ -17,12 +18,10 @@
                 <h2 class="form-header">Create new note:</h2>
                 <form class="note-form">
                     <label>
-                        <!-- <span>Note title:</span> -->
                         <input class="input-item" type="text" name="noteTitle" placeholder="Title..." autofocus>
                     </label>
                     <label>
-                        <!-- <span>Note content:</span> -->
-                        <textarea class="input-item" name="noteContent" placeholder="Content..." rows="10"></textarea>
+                        <textarea class="input-item" name="noteContent" placeholder="Content..."></textarea>
                     </label>
                     <button type="submit" class="add-note-btn btn" disabled>Add note</button>
                     <button type="reset" class="clear-note-btn btn">Clear</button>
@@ -30,7 +29,7 @@
             </div>
 
             <div class="form-wrapper">
-                <h2 class="form-header">Search notes by keyword:</h2>
+                <h2 class="form-header">Search notes:</h2>
                 <form class="search-form">
                     <label>
                         <input class="search-item" type="text" name="searchByKeyword" placeholder="Search title or content...">
@@ -42,51 +41,6 @@
         </div>
 
         <ul class="notes-list">
-            <!-- <li class="list-item">
-                <button class="delete-btn">X</button>
-                <h3 class="note-title">cat</h3>
-                <p class="note-content">cat</p>
-            </li>
-            <li class="list-item">
-                <button class="delete-btn">X</button>
-                <h3 class="note-title">dog</h3>
-                <p class="note-content">dog</p>
-            </li>
-            <li class="list-item">
-                <button class="delete-btn">X</button>
-                <h3 class="note-title">fjdkjvshvshdv</h3>
-                <p class="note-content">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem quos quia numquam exercitationem cumque perspiciatis excepturi illum dolores atque repudiandae!</p>
-            </li>
-            <li class="list-item">
-                <button class="delete-btn">X</button>
-                <h3 class="note-title">bug</h3>
-                <p class="note-content">bug</p>
-            </li>
-            <li class="list-item">
-                <button class="delete-btn">X</button>
-                <h3 class="note-title">EvenbuggsbreadANDToast</h3>
-                <p class="note-content">EvenbuggsbreadANDToast</p>
-            </li>
-                        <li class="list-item">
-                <button class="delete-btn">X</button>
-                <h3 class="note-title">cat</h3>
-                <p class="note-content">cat</p>
-            </li>
-            <li class="list-item">
-                <button class="delete-btn">X</button>
-                <h3 class="note-title">dog</h3>
-                <p class="note-content">dog</p>
-            </li>
-            <li class="list-item">
-                <button class="delete-btn">X</button>
-                <h3 class="note-title">bug</h3>
-                <p class="note-content">bug</p>
-            </li>
-            <li class="list-item">
-                <button class="delete-btn">X</button>
-                <h3 class="note-title">EvenbuggsbreadANDToast</h3>
-                <p class="note-content">EvenbuggsbreadANDToast</p>
-            </li> -->
         </ul>
     </main>
     
